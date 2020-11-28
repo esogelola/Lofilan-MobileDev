@@ -50,7 +50,7 @@ const updateSecureTextEntry = () => {
            <View style={styles.header}>
                <Text style={{fontWeight: 'bold', textAlign:'center'}}>Lofilan</Text>
                <Text style={styles.text_header}>Sign In</Text>
-               <Text style={{color:'#989EB1', fontSize: 15}}>Hi there! Nice to see you again.</Text>
+               <Text style={{color:'#989EB1', fontSize: 16}}>Hi there! Nice to see you again.</Text>
            </View>
            <Animatable.View 
            animation='fadeInDown'
