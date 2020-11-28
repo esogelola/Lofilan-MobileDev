@@ -14,7 +14,14 @@ import {
   Linking,
 } from 'react-native';
 
-import {Surface, Text, Searchbar, DataTable} from 'react-native-paper';
+import {
+  Surface,
+  Text,
+  Searchbar,
+  Paragraph,
+  Title,
+  Card,
+} from 'react-native-paper';
 const TextButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.textButtonContainer}>
     <Text style={styles.textButtonText}>{title}</Text>
@@ -25,31 +32,30 @@ class ListCommunityScreen extends React.Component {
   constructor({navigation}) {
     super();
     this.state = {
-      communities: [
+      postings: [
         {
-          membersCount: 64,
-          name: 'Brookhaven Home Group',
-          active: true,
+          title: 'Introductions',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+          created: '12 July',
+          author: 'Julia R',
+          topic: 'New members',
         },
         {
-          membersCount: 99,
-          name: 'BillMay Crescent Friends',
-          active: true,
+          title: 'Introductions',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+          created: '12 July',
+          author: 'Julia R',
+          topic: 'New members',
         },
         {
-          membersCount: 64,
-          name: 'Buddies in Parrel',
-          active: true,
-        },
-        {
-          membersCount: 64,
-          name: 'StBernards Street Group',
-          active: true,
-        },
-        {
-          membersCount: 64,
-          name: 'Sedgewick Circle ',
-          active: true,
+          title: 'Introductions',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+          created: '12 July',
+          author: 'Julia R',
+          topic: 'New members',
         },
       ],
     };
@@ -59,42 +65,31 @@ class ListCommunityScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Surface style={styles.surface}>
-          <Text>Feature Community / Event</Text>
+          <Text>Community Event / Latest News</Text>
         </Surface>
-        <Text style={styles.smallOrange}>
-          Location: <Text style={styles.smallBlue}>32 Brookhaven Avenue</Text>
-        </Text>
-        <Text style={styles.small}>
-          Communities within 4 kilometers will appear.
-        </Text>
-        <Searchbar placeholder="Search" />
-        <ScrollView>
-          <DataTable >
-            <DataTable.Header>
-              <DataTable.Title># Members</DataTable.Title>
-              <DataTable.Title>Name</DataTable.Title>
-              <DataTable.Title>Active</DataTable.Title>
-            </DataTable.Header>
 
-            {this.state.communities.map((com, num) => {
-              return (
-                <DataTable.Row  key={num}>
-                  <DataTable.Cell >{com.membersCount}/100</DataTable.Cell>
-                  <DataTable.Cell>{com.name}</DataTable.Cell>
-                  <DataTable.Cell>
-                    {com.active ? 'Active' : 'Inactive'}
-                  </DataTable.Cell>
-                </DataTable.Row>
-              );
-            })}
-          </DataTable>
+        <ScrollView>
+          {this.state.postings.map((post, num) => {
+            return (
+              <TouchableOpacity>
+                <Card style={styles.Card}>
+                  <Card.Content>
+                    <Text style={styles.smallOrange}>{post.title}</Text>
+                    <Paragraph style={styles.small}>
+                      {post.description}
+                    </Paragraph>
+                    <Text style={styles.small}>
+                      {post.created} by {post.author} in{' '}
+                      <Text style={styles.smallOrange}>{post.topic}</Text>
+                    </Text>
+                  </Card.Content>
+                </Card>
+              </TouchableOpacity>
+            );
+          })}
         </ScrollView>
-        <Text style={styles.smallOrange}>Community Guideline</Text>
-         <TextButton
-            title="Create a Community"
-            size="sm"
-            backgroundColor="#007bff"
-          />
+
+        <TextButton title="New Post" size="sm" backgroundColor="#007bff" />
       </View>
     );
   }
@@ -167,7 +162,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textTransform: 'uppercase',
   },
+  Card: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
 
+    backgroundColor: 'transparent',
+    elevation: 0,
+  },
   surface: {
     padding: 8,
     height: '30%',
@@ -175,6 +177,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 4,
+    marginBottom: 20,
   },
 });
 

@@ -7,7 +7,6 @@ import {
   Text,
   StatusBar,
   Button,
-  TextInput,
   TouchableOpacity,
   Image,
   FlatList,
@@ -16,6 +15,7 @@ import {
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import ListCommunityScreen from './ListCommunity';
+import { TextInput } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 
@@ -23,14 +23,9 @@ const AppButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
     <Text style={styles.appButtonText}>{title}</Text>
   </TouchableOpacity>
- 
 );
-const TextButton = ({onPress, title}) => (
-  <TouchableOpacity onPress={onPress} style={styles.textButtonContainer}>
-    <Text style={styles.textButtonText}>{title}</Text>
-  </TouchableOpacity>
-);
-class JoinCommunityScreen extends React.Component {
+
+class CreateCommunit1Screen extends React.Component {
   constructor({navigation}) {
     super();
   }
@@ -42,22 +37,26 @@ class JoinCommunityScreen extends React.Component {
 
         <View style={styles.container}>
           <Image
-            source={require('../../static/images/Search_PNG.png')}
+            source={require('../../static/images/people_PNG.png')}
             style={styles.image}
           />
-          <Text style={styles.title}>Join a Community</Text>
-          <Text style={styles.smallOrange}>Community Guideline</Text>
-          <Text style={styles.small}>
-            Hey! Looks like you havent joined a community yet. You could create
-            your own or find one nearby.
-          </Text>
+          <Text style={styles.title}>Create a Community</Text>
 
-          <AppButton onPress={() => Stack.navigate('ListCommunity')} title="Browse" size="sm" backgroundColor="#007bff" />
-          <TextButton
-            title="Create a Community"
+          <Text style={styles.small}>
+            Finding a Community near you must be tough, doesn’t hurt to start
+            one for your Neighbourhood
+          </Text>
+          <Text style={styles.smallOrange}>
+            Responsibilities of a Community leader.
+          </Text>
+          <TextInput label="Community Name"/>
+          <AppButton
+            onPress={() => Stack.navigate('ListCommunity')}
+            title="Next"
             size="sm"
             backgroundColor="#007bff"
           />
+         
         </View>
       </>
     );
@@ -67,13 +66,14 @@ class JoinCommunityScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    justifyContent: 'center',
     margin: 25,
   },
   image: {
     width: 160,
     height: 182,
     resizeMode: 'contain',
+    
     marginBottom: 25,
   },
   title: {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Asap',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 16,
+    fontSize: 10,
     lineHeight: 18,
     color: '#989EB1',
     marginTop: 0,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Asap',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 12,
+    fontSize: 9,
     lineHeight: 14,
     color: '#F85F6A',
     marginTop: 0,
@@ -127,19 +127,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
 
-  textButtonContainer: {
-    elevation: 8,
-    marginBottom: 10,
-  },
-  textButtonText: {
-    fontFamily: 'Asap',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    fontSize: 17,
-    lineHeight: 19,
-    color: '#989EB1',
-    alignSelf: 'center',
-  },
+
 });
 
-export default JoinCommunityScreen;
+export default CreateCommunit1Screen;
