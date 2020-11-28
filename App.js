@@ -6,18 +6,24 @@
  * @flow strict-local
  */
 
+
+
+
+
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import Entry from './components/Entry';
+
+
+
+const App: () => React$Node = () => {
+  return (
+
+      <Entry />
+
 
 import StartScreen from './screens/StartScreen';
 
@@ -29,7 +35,9 @@ const App = () => {
       
     </NavigationContainer>
 
+
   );
+
 
 
 }
