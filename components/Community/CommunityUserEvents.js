@@ -64,30 +64,44 @@ class ListCommunityScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-     <Searchbar placeholder="Search" />
-     <Button title="sort"/>
+        <Searchbar placeholder="Search" />
+        <Button title="sort" />
         <ScrollView>
-          {this.state.postings.map((post, num) => {
-            return (
-              <TouchableOpacity key={num}>
-                <Card style={styles.Card}>
-                  <Card.Content>
-                    <Text style={styles.smallOrange}>{post.title}</Text>
-                    <Paragraph style={styles.small}>
-                      {post.description}
-                    </Paragraph>
-                    <Text style={styles.small}>
-                      {post.created} by {post.author} in{' '}
-                      <Text style={styles.smallOrange}>{post.topic}</Text>
-                    </Text>
-                  </Card.Content>
-                </Card>
-              </TouchableOpacity>
-            );
-          })}
+          <Card style={styles.Card}>
+            <Card.Content>
+              <Title style={{color: '#F85F6A'}}>Garage Sale</Title>
+              <Paragraph style={styles.small}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+                at consectetur.....
+              </Paragraph>
+              <Text style={styles.small}>34 Brook Haven Avenue</Text>
+              <Text style={styles.smallOrange}>12 May 2020 12:30PM</Text>
+            </Card.Content>
+
+            <Card.Actions>
+              <TextButton title="JOIN" />
+              <TextButton title="Not Interested" />
+            </Card.Actions>
+          </Card>
+          <Card style={styles.Card}>
+            <Card.Content>
+              <Title style={{color: '#F85F6A'}}>Backyard Cinema</Title>
+              <Paragraph style={styles.small}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+                at consectetur.....
+              </Paragraph>
+              <Text style={styles.small}>34 Brook Haven Avenue</Text>
+              <Text style={styles.smallOrange}>12 May 2020 12:30PM</Text>
+            </Card.Content>
+
+            <Card.Actions>
+              <TextButton title="JOIN" />
+              <TextButton title="Not Interested" />
+            </Card.Actions>
+          </Card>
         </ScrollView>
-
-
       </View>
     );
   }
@@ -95,13 +109,14 @@ class ListCommunityScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
+    justifyContent: 'center',
     margin: 25,
   },
   image: {
     width: 160,
     height: 182,
     resizeMode: 'contain',
+
     marginBottom: 25,
   },
   title: {
@@ -118,28 +133,19 @@ const styles = StyleSheet.create({
     fontFamily: 'Asap',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 12,
+    fontSize: 10,
     lineHeight: 18,
     color: '#989EB1',
-    marginTop: 0,
-  },
-  smallBlue: {
-    fontFamily: 'Asap',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 12,
-    lineHeight: 18,
-    color: '#3E7EFF',
     marginTop: 0,
   },
   smallOrange: {
     fontFamily: 'Asap',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 12,
+    fontSize: 9,
     lineHeight: 14,
     color: '#F85F6A',
-    marginTop: 10,
+    marginTop: 0,
   },
 
   appButtonContainer: {
@@ -150,32 +156,38 @@ const styles = StyleSheet.create({
     paddingHorizontal: 100,
     marginBottom: 10,
   },
-  appButtonText: {
-    fontFamily: 'Asap',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    fontSize: 17,
-    lineHeight: 19,
-    color: '#FFFFFF',
-    alignSelf: 'center',
-    textTransform: 'uppercase',
-  },
-  Card: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    backgroundColor: 'transparent',
-    elevation: 0,
-  },
   surface: {
     padding: 8,
-    height: '30%',
+    height: '10%',
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 4,
     marginBottom: 20,
+    backgroundColor: '#EB5757',
+  },
+  Card: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+    marginTop: 10,
+    elevation: 1,
+  },
+
+  textButtonContainer: {
+    elevation: 8,
+    marginBottom: 10,
+    marginLeft: 10,
+  },
+  textButtonText: {
+    fontFamily: 'Asap',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 17,
+    lineHeight: 19,
+
+    alignSelf: 'center',
   },
 });
 

@@ -25,7 +25,7 @@ const AppButton = ({onPress, title}) => (
   </TouchableOpacity>
 );
 
-class CreateCommunit1Screen extends React.Component {
+class CreateCommunit3Screen extends React.Component {
   constructor({navigation}) {
     super();
   }
@@ -175,4 +175,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateCommunit1Screen;
+export default CreateCommunit3Screen;

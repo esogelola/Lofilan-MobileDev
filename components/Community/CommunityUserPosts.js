@@ -64,8 +64,8 @@ class ListCommunityScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-     <Searchbar placeholder="Search" />
-     <Button title="sort"/>
+        <Title>Posts</Title>
+    
         <ScrollView>
           {this.state.postings.map((post, num) => {
             return (
@@ -162,11 +162,11 @@ const styles = StyleSheet.create({
   },
   Card: {
     width: '100%',
+    
     alignItems: 'center',
     justifyContent: 'center',
-
-    backgroundColor: 'transparent',
-    elevation: 0,
+    marginBottom: 10,
+    elevation:1,
   },
   surface: {
     padding: 8,

@@ -21,41 +21,49 @@ import {
   Paragraph,
   Title,
   Card,
+  DataTable,
 } from 'react-native-paper';
 const TextButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.textButtonContainer}>
     <Text style={styles.textButtonText}>{title}</Text>
   </TouchableOpacity>
 );
-
+const AppButton = ({onPress, title}) => (
+  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
+    <Text style={styles.appButtonText}>{title}</Text>
+  </TouchableOpacity>
+);
 class ListCommunityScreen extends React.Component {
   constructor({navigation}) {
     super();
     this.state = {
-      postings: [
+      users: [
         {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
+          name: 'Introductions',
+          email: 'sam.smith@gmail.com',
+          isEmailHidden: false,
+          isMobileHidden: false,
+          last: '4 Hours ago',
+          distance: '0.2 KM',
+          image: '../../static/images/' + 'KtCFjlD4.png',
         },
         {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
+          name: 'Julia Robert',
+          email: 'juliar@gmail.com',
+          isEmailHidden: true,
+          isMobileHidden: true,
+          last: 'Active',
+          distance: '0.2 KM',
+          image: '../../static/images/' + '44.jpg',
         },
         {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
+          name: 'Adam Driver',
+          email: 'sam.smith@gmail.com',
+          isEmailHidden: false,
+          isMobileHidden: true,
+          last: '12 July',
+          distance: '0.2 KM',
+          image: '../../static/images/gPZwCbdS.jpg',
         },
       ],
     };
@@ -64,30 +72,33 @@ class ListCommunityScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-     <Searchbar placeholder="Search" />
-     <Button title="sort"/>
-        <ScrollView>
-          {this.state.postings.map((post, num) => {
-            return (
-              <TouchableOpacity key={num}>
-                <Card style={styles.Card}>
-                  <Card.Content>
-                    <Text style={styles.smallOrange}>{post.title}</Text>
-                    <Paragraph style={styles.small}>
-                      {post.description}
-                    </Paragraph>
-                    <Text style={styles.small}>
-                      {post.created} by {post.author} in{' '}
-                      <Text style={styles.smallOrange}>{post.topic}</Text>
-                    </Text>
-                  </Card.Content>
-                </Card>
-              </TouchableOpacity>
-            );
-          })}
+      <Title>Users  <AppButton title="Invite"/></Title>
+     
+        <Searchbar placeholder="Search" />
+      
+        <ScrollView Horizontal>
+          <DataTable>
+            <DataTable.Header>
+              <DataTable.Title>User</DataTable.Title>
+              <DataTable.Title>Email</DataTable.Title>
+              <DataTable.Title>Last Login</DataTable.Title>
+              <DataTable.Title>Distance</DataTable.Title>
+            </DataTable.Header>
+
+            {this.state.users.map((user, num) => {
+              return (
+                <TouchableOpacity>
+                  <DataTable.Row key={num}>
+                    <DataTable.Cell>{user.name}</DataTable.Cell>
+                    <DataTable.Cell>{user.email}</DataTable.Cell>
+                    <DataTable.Cell>{user.last}</DataTable.Cell>
+                    <DataTable.Cell>{user.distance}</DataTable.Cell>
+                  </DataTable.Row>
+                </TouchableOpacity>
+              );
+            })}
+          </DataTable>
         </ScrollView>
-
-
       </View>
     );
   }
@@ -147,7 +158,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F85F6A',
     borderRadius: 6,
     paddingVertical: 5,
-    paddingHorizontal: 100,
+    paddingHorizontal: 10,
     marginBottom: 10,
   },
   appButtonText: {

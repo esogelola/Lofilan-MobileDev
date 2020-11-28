@@ -42,7 +42,7 @@ const InviteOnly = () => {
     </RadioButton.Group>
   );
 };
-class CreateCommunit1Screen extends React.Component {
+class CreateCommunit2Screen extends React.Component {
   constructor({navigation}) {
     super();
   }
@@ -58,7 +58,7 @@ class CreateCommunit1Screen extends React.Component {
             Finding a Community near you must be tough, doesn’t hurt to start
             one for your Neighbourhood
           </Text>
-          
+
           <TextInput
             multiline={true}
             numberOfLines={3}
@@ -187,4 +187,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateCommunit1Screen;
+export default CreateCommunit2Screen;

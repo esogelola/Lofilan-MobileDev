@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import ListCommunityScreen from './ListCommunity';
-import {TextInput, RadioButton, Chip, IconButton} from 'react-native-paper';
+import {TextInput, RadioButton} from 'react-native-paper';
 
 const Stack = createStackNavigator();
 
@@ -24,8 +24,27 @@ const AppButton = ({onPress, title}) => (
     <Text style={styles.appButtonText}>{title}</Text>
   </TouchableOpacity>
 );
+const InviteOnly = () => {
+  const [value, setValue] = React.useState('first');
 
-class CreatePosting extends React.Component {
+  return (
+    <RadioButton.Group
+      onValueChange={(newValue) => setValue(newValue)}
+      value={value}>
+      <View>
+        <Text style={styles.smallRadio}>Anyone can join this community</Text>
+        <RadioButton value="first" />
+      </View>
+      <View>
+        <Text style={styles.smallRadio}>
+          Only people invited can join this community
+        </Text>
+        <RadioButton value="second" />
+      </View>
+    </RadioButton.Group>
+  );
+};
+class CreateCommunit2Screen extends React.Component {
   constructor({navigation}) {
     super();
   }
@@ -36,56 +55,24 @@ class CreatePosting extends React.Component {
         <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
 
         <View style={styles.container}>
-          <Text style={styles.title}>Create a Post</Text>
+          <Text style={styles.title}>Community Settings</Text>
 
-          <TextInput label="Title" />
+          <TextInput label="Community Name" value="Brookhaven Home Group"   style={{marginTop: 10}} />
           <TextInput
             style={{marginTop: 10}}
             multiline={true}
             numberOfLines={3}
-            label="Description"
+            label="Community Description"
+            value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur....."
           />
-
-          <Text icon="information" style={styles.small}>
-            17 Sedgewick Circle
-          </Text>
-          <Text style={styles.small2}>Topic</Text>
-
-          <View style={[{flexDirection: 'row', alignItems: 'center'}]}>
-            <View style={{flex: 1, flexDirection: 'row'}}>
-              <Chip
-                icon="information"
-                selected="true"
-                style={{
-                  width: '100%',
-                  justifyContent: 'space-evenly',
-                  marginVertical: 10,
-                }}>
-                Garage Sales
-              </Chip>
-            </View>
-            <View
-              style={[{justifyContent: 'space-evenly', marginVertical: 10}]}>
-              <Chip
-                icon="information"
-                style={{
-                  justifyContent: 'space-evenly',
-                  marginVertical: 10,
-                }}>
-                New Members
-              </Chip>
-            </View>
-          </View>
-          <Text style={{"marginBottom" : 10}}>
-            {' '}
-            <IconButton
-              icon="camera"
-              size={20}
-              onPress={() => console.log('Pressed')}
-            />
-            Attach an Image or file
-          </Text>
-          <AppButton title="Post" size="sm" backgroundColor="#007bff" />
+          <Image
+            source={require('../../static/images/map.png')}
+            style={styles.image}
+          />
+          <Text style={styles.small}>17 Sedgewick Circle</Text>
+          <Text style={styles.medium3}>Invite Only</Text>
+          <InviteOnly />
+          <AppButton title="Save" size="sm" backgroundColor="#007bff" />
         </View>
       </ScrollView>
     );
@@ -152,6 +139,8 @@ const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 18,
     color: '#989EB1',
+    marginTop: 0,
+    padding: 5,
   },
   smallRadio: {
     fontFamily: 'Asap',
@@ -193,4 +182,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreatePosting;
+export default CreateCommunit2Screen;

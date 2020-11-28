@@ -36,7 +36,7 @@ class CreatePosting extends React.Component {
         <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
 
         <View style={styles.container}>
-          <Text style={styles.title}>Create a Post</Text>
+          <Text style={styles.title}>Create an Event</Text>
 
           <TextInput label="Title" />
           <TextInput
@@ -45,38 +45,11 @@ class CreatePosting extends React.Component {
             numberOfLines={3}
             label="Description"
           />
-
-          <Text icon="information" style={styles.small}>
-            17 Sedgewick Circle
-          </Text>
-          <Text style={styles.small2}>Topic</Text>
-
-          <View style={[{flexDirection: 'row', alignItems: 'center'}]}>
-            <View style={{flex: 1, flexDirection: 'row'}}>
-              <Chip
-                icon="information"
-                selected="true"
-                style={{
-                  width: '100%',
-                  justifyContent: 'space-evenly',
-                  marginVertical: 10,
-                }}>
-                Garage Sales
-              </Chip>
-            </View>
-            <View
-              style={[{justifyContent: 'space-evenly', marginVertical: 10}]}>
-              <Chip
-                icon="information"
-                style={{
-                  justifyContent: 'space-evenly',
-                  marginVertical: 10,
-                }}>
-                New Members
-              </Chip>
-            </View>
-          </View>
-          <Text style={{"marginBottom" : 10}}>
+    <Text style={styles.small}>Location</Text>
+          <Text style={styles.small2}>17 Sedgewick Circle</Text>
+          <Text style={styles.small}>Time</Text>
+ <Text style={styles.small2}>12 : 30 PM</Text>
+          <Text style={{marginBottom: 10}}>
             {' '}
             <IconButton
               icon="camera"
@@ -85,7 +58,8 @@ class CreatePosting extends React.Component {
             />
             Attach an Image or file
           </Text>
-          <AppButton title="Post" size="sm" backgroundColor="#007bff" />
+          <Text style={styles.small2}>Attachments will be shown in Email sent to Event Participants</Text>
+          <AppButton title="Done" size="sm" backgroundColor="#007bff" />
         </View>
       </ScrollView>
     );
@@ -152,6 +126,15 @@ const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 18,
     color: '#989EB1',
+  },
+    small2: {
+    fontFamily: 'Asap',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 10,
+    lineHeight: 18,
+    color: '#989EB1',
+    marginBottom: 10,
   },
   smallRadio: {
     fontFamily: 'Asap',

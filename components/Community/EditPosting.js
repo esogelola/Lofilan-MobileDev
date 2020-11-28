@@ -36,14 +36,15 @@ class CreatePosting extends React.Component {
         <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
 
         <View style={styles.container}>
-          <Text style={styles.title}>Create a Post</Text>
+          <Text style={styles.title}>Edit a Post</Text>
 
-          <TextInput label="Title" />
+          <TextInput label="Title" value="Garage Sale"/>
           <TextInput
             style={{marginTop: 10}}
             multiline={true}
             numberOfLines={3}
             label="Description"
+            value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur....."
           />
 
           <Text icon="information" style={styles.small}>
@@ -85,7 +86,7 @@ class CreatePosting extends React.Component {
             />
             Attach an Image or file
           </Text>
-          <AppButton title="Post" size="sm" backgroundColor="#007bff" />
+          <AppButton title="Save" size="sm" backgroundColor="#007bff" />
         </View>
       </ScrollView>
     );
