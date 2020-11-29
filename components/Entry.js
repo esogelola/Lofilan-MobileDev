@@ -29,13 +29,24 @@ import CommunityUserPosts from './Community/CommunityUserPosts';
 import ViewUser from './Community/ViewUser';
 import CommunityPreferences from './Community/CommunityPreferences';
 import CommunitySettings from './Community/CommunitySettings';
+
+
+import SignInScreen from './start/SignInScreen';
+import SignUpScreen from './start/SignUpScreen';
+import StartScreen from './start/StartScreen';
+
+import MarketplaceScreen from './marketplaceUi/Marketplace';
+import MarketplaceCategories from './marketplaceUi/MarketplaceCategories';
+import MarketplaceSellScreen from './marketplaceUi/MarketplaceSell';
+import MarketplaceViewItemScreen from './marketplaceUi/MarketPlaceViewItem';
+
 const Drawer = createDrawerNavigator();
 const Entry = () => {
   return (
     <>
-      <Text>Lofilan</Text>
+         <Text style={{fontWeight: 'bold', textAlign:'center', backgroundColor:'white'}}>Lofilan</Text>
       <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Navigator initialRouteName="Start Screen">
           <Drawer.Screen
             name="Community (!Logged)"
             component={JoinCommunityScreen}
@@ -69,14 +80,58 @@ const Entry = () => {
           <Drawer.Screen name="Edit Posting" component={EditPosting} />
           <Drawer.Screen name="View Events" component={ViewEvents} />
           <Drawer.Screen name="Create Event" component={CreateEvent} />
-          <Drawer.Screen name="Community Information" component={CommunityInformation} />
-                    <Drawer.Screen name="Community Users" component={CommunityUsers} />
- <Drawer.Screen name="Community Invite" component={CommunityInvite} />
-  <Drawer.Screen name="Community User Events" component={CommunityUserEvents} />
-   <Drawer.Screen name="Community User Posts" component={CommunityUserPosts} />
-    <Drawer.Screen name="Community User" component={ViewUser} />
-        <Drawer.Screen name="Community Preferences" component={CommunityPreferences} />
-                <Drawer.Screen name="Community Settings" component={CommunitySettings } />
+          <Drawer.Screen
+            name="Community Information"
+            component={CommunityInformation}
+          />
+          <Drawer.Screen name="Community Users" component={CommunityUsers} />
+          <Drawer.Screen name="Community Invite" component={CommunityInvite} />
+          <Drawer.Screen
+            name="Community User Events"
+            component={CommunityUserEvents}
+          />
+          <Drawer.Screen
+            name="Community User Posts"
+            component={CommunityUserPosts}
+          />
+          <Drawer.Screen name="Community User" component={ViewUser} />
+          <Drawer.Screen
+            name="Community Preferences"
+            component={CommunityPreferences}
+          />
+          <Drawer.Screen
+            name="Community Settings"
+            component={CommunitySettings}
+          />
+           <Drawer.Screen
+            name="Sign Up"
+            component={SignInScreen}
+          />
+           <Drawer.Screen
+            name="Sign In"
+            component={SignUpScreen}
+          />
+           <Drawer.Screen
+            name="Start Screen"
+            component={StartScreen}
+          />
+           <Drawer.Screen
+            name="Marketplace"
+            component={MarketplaceScreen}
+          />
+           <Drawer.Screen
+            name="Marketplace Categories"
+            component={MarketplaceCategories}
+          />
+           <Drawer.Screen
+            name="Marketplace Sell"
+            component={MarketplaceSellScreen}
+          />
+           <Drawer.Screen
+            name="Marketplace View Item"
+            component={MarketplaceViewItemScreen}
+          />
+      
         </Drawer.Navigator>
       </NavigationContainer>
     </>
