@@ -104,11 +104,11 @@ const Entry = () => {
             component={CommunitySettings}
           />
            <Drawer.Screen
-            name="Sign Up"
+            name="Sign In"
             component={SignInScreen}
           />
            <Drawer.Screen
-            name="Sign In"
+            name="Sign Up"
             component={SignUpScreen}
           />
            <Drawer.Screen
