@@ -42,7 +42,7 @@ class JoinCommunityScreen extends React.Component {
 
         <View style={styles.container}>
           <Image
-            source={require('../../static/images/Search_PNG.png')}
+            source={require('../../../static/images/Search_PNG.png')}
             style={styles.image}
           />
           <Text style={styles.title}>Join a Community</Text>

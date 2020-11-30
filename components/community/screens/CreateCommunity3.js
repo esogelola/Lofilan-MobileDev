@@ -41,7 +41,7 @@ class CreateCommunit3Screen extends React.Component {
             Add a Community Banner and confirm all the details.
           </Text>
           <Image
-            source={require('../../static/images/AddPhoto.png')}
+            source={require('../../../static/images/AddPhoto.png')}
             style={styles.image}
           />
           <Text style={styles.smaller}>

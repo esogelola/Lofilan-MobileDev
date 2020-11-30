@@ -65,7 +65,7 @@ class CreateCommunit2Screen extends React.Component {
             label="Community Description"
           />
           <Image
-            source={require('../../static/images/map.png')}
+            source={require('../../../static/images/map.png')}
             style={styles.image}
           />
           <Text style={styles.small}>17 Sedgewick Circle</Text>

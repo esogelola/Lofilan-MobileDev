@@ -46,7 +46,7 @@ class ListCommunityScreen extends React.Component {
           <Title>Invite Your Friends</Title>
           <Image
             style={styles.image}
-            source={require('../../static/images/peeps.png')}></Image>
+            source={require('../../../static/images/peeps.png')}></Image>
         </Surface>
         <TextInput label="Email" value = "johndoe@email.com" />
         <AppButton title="Send"/>

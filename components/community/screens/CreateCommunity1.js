@@ -37,7 +37,7 @@ class CreateCommunit1Screen extends React.Component {
 
         <View style={styles.container}>
           <Image
-            source={require('../../static/images/people_PNG.png')}
+            source={require('../../../static/images/people_PNG.png')}
             style={styles.image}
           />
           <Text style={styles.title}>Create a Community</Text>

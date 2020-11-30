@@ -1,27 +1,14 @@
 import React from 'react';
 //
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
 //import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-//Header Navigation
+//Module Imports
+import Community from './community/community';
+import Signing from './signing/start';
+import Marketplace from './marketplace/marketplace';
 
 
-const Drawer = createDrawerNavigator();
-const Entry = () => {
-  return (
-    <>
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Start Screen">
-          <Drawer.Screen
-            name="Community (!Logged)"
-            component={JoinCommunityScreen}
-          />
-
-        </Drawer.Navigator>
-      </NavigationContainer>
-    </>
-  );
-};
 
 export default Entry;

@@ -66,7 +66,7 @@ class CreateCommunit2Screen extends React.Component {
             value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur....."
           />
           <Image
-            source={require('../../static/images/map.png')}
+            source={require('../../../static/images/map.png')}
             style={styles.image}
           />
           <Text style={styles.small}>17 Sedgewick Circle</Text>

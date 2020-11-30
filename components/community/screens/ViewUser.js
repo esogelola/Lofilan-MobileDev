@@ -44,7 +44,7 @@ class ListCommunityScreen extends React.Component {
         <View style={styles.container}>
           <Image
             style={styles.image}
-            source={require('../../static/images/44.jpg')}
+            source={require('../../../static/images/44.jpg')}
           />
           <Surface style={styles.surface}>
             <Title>Julia Robert</Title>

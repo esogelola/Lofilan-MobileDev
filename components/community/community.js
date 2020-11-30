@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Text} from 'react-native';
 
 // Import Screens below
 import JoinCommunityScreen from './screens/JoinCommunity';
@@ -26,4 +26,15 @@ import CommunityPreferences from './screens/CommunityPreferences';
 import CommunitySettings from './screens/CommunitySettings';
 
 
-// Stack Screen (Home, Search, Events, Preferences)
+class App  extends React.Component {
+    
+    render(){
+       
+        //console.log(this.props)
+
+return <Text>{}</Text>;
+    }
+  
+}
+
+export default App;
