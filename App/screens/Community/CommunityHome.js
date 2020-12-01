@@ -15,7 +15,7 @@ import {
   Linking,
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import ListCommunityScreen from './ListCommunity';
+
 
 const Stack = createStackNavigator();
 
@@ -38,11 +38,10 @@ class JoinCommunityScreen extends React.Component {
   render() {
     return (
       <>
-        <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
-
+       
         <View style={styles.container}>
           <Image
-            source={require('../../static/images/Search_PNG.png')}
+            source={require('../../../assets/images/Search_PNG.png')}
             style={styles.image}
           />
           <Text style={styles.title}>Join a Community</Text>
@@ -52,7 +51,7 @@ class JoinCommunityScreen extends React.Component {
             your own or find one nearby.
           </Text>
 
-          <AppButton onPress={() => Stack.navigate('ListCommunity')} title="Browse" size="sm" backgroundColor="#007bff" />
+          {/* <AppButton onPress={() => Stack.navigate('ListCommunity')} title="Browse" size="sm" backgroundColor="#007bff" /> */}
           <TextButton
             title="Create a Community"
             size="sm"
