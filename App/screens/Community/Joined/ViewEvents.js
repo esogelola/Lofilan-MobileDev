@@ -14,7 +14,7 @@ import {
   Linking,
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import ListCommunityScreen from './ListCommunity';
+
 import {Card, Surface, Title, Paragraph} from 'react-native-paper';
 
 const Stack = createStackNavigator();
@@ -33,7 +33,7 @@ class CreateCommunit1Screen extends React.Component {
   render() {
     return (
       <>
-        <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
+
         <View style={styles.container}>
           <Surface style={styles.surface}>
             <Text> May, 2 - May, 21</Text>
