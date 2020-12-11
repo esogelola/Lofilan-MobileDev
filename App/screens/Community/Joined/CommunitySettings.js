@@ -14,7 +14,7 @@ import {
   Linking,
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import ListCommunityScreen from './ListCommunity';
+import ListCommunityScreen from './CommunityHome';
 import {TextInput, RadioButton} from 'react-native-paper';
 
 const Stack = createStackNavigator();
@@ -57,7 +57,11 @@ class CreateCommunit2Screen extends React.Component {
         <View style={styles.container}>
           <Text style={styles.title}>Community Settings</Text>
 
-          <TextInput label="Community Name" value="Brookhaven Home Group"   style={{marginTop: 10}} />
+          <TextInput
+            label="Community Name"
+            value="Brookhaven Home Group"
+            style={{marginTop: 10}}
+          />
           <TextInput
             style={{marginTop: 10}}
             multiline={true}
@@ -66,7 +70,7 @@ class CreateCommunit2Screen extends React.Component {
             value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur....."
           />
           <Image
-            source={require('../../static/images/map.png')}
+            source={require('../../../../assets/images/map.png')}
             style={styles.image}
           />
           <Text style={styles.small}>17 Sedgewick Circle</Text>

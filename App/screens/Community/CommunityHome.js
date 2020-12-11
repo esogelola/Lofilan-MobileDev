@@ -16,14 +16,12 @@ import {
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-
 const Stack = createStackNavigator();
 
 const AppButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
     <Text style={styles.appButtonText}>{title}</Text>
   </TouchableOpacity>
- 
 );
 const TextButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.textButtonContainer}>
@@ -38,7 +36,6 @@ class JoinCommunityScreen extends React.Component {
   render() {
     return (
       <>
-       
         <View style={styles.container}>
           <Image
             source={require('../../../assets/images/Search_PNG.png')}
@@ -51,7 +48,12 @@ class JoinCommunityScreen extends React.Component {
             your own or find one nearby.
           </Text>
 
-          {/* <AppButton onPress={() => Stack.navigate('ListCommunity')} title="Browse" size="sm" backgroundColor="#007bff" /> */}
+          <AppButton
+            onPress={() => Stack.navigate('ListCommunity')}
+            title="Browse"
+            size="sm"
+            backgroundColor="#007bff"
+          />
           <TextButton
             title="Create a Community"
             size="sm"
