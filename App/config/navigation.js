@@ -20,6 +20,7 @@ import MarketplaceHome from '../screens/Marketplace/Marketplace';
 
 import {AuthContext} from '../context';
 import {Text} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const hasCommunity = true;
 const AuthStack = createStackNavigator();
@@ -97,12 +98,26 @@ const RootStackScreen = ({userToken}) => (
 export default () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [userToken, setUserToken] = React.useState(null);
+  getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('userToken');
+      if (value !== null) {
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
 
   const authContext = React.useMemo(() => {
     return {
-      signIn: () => {
+      signIn: async () => {
         setIsLoading(false);
-        setUserToken('asdf');
+        try {
+          await AsyncStorage.setItem('userToken', 'asdf');
+        } catch (error) {
+          console.log(error);
+        }
+
         console.log('User signed in!');
       },
       signUp: () => {
