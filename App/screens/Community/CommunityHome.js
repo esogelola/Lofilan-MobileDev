@@ -28,42 +28,37 @@ const TextButton = ({onPress, title}) => (
     <Text style={styles.textButtonText}>{title}</Text>
   </TouchableOpacity>
 );
-class JoinCommunityScreen extends React.Component {
-  constructor({navigation}) {
-    super();
-  }
+const JoinCommunityScreen = ({navigation}) => {
+  return (
+    <>
+      <View style={styles.container}>
+        <Image
+          source={require('../../../assets/images/Search_PNG.png')}
+          style={styles.image}
+        />
+        <Text style={styles.title}>Join a Community</Text>
+        <Text style={styles.smallOrange}>Community Guideline</Text>
+        <Text style={styles.small}>
+          Hey! Looks like you havent joined a community yet. You could create
+          your own or find one nearby.
+        </Text>
 
-  render() {
-    return (
-      <>
-        <View style={styles.container}>
-          <Image
-            source={require('../../../assets/images/Search_PNG.png')}
-            style={styles.image}
-          />
-          <Text style={styles.title}>Join a Community</Text>
-          <Text style={styles.smallOrange}>Community Guideline</Text>
-          <Text style={styles.small}>
-            Hey! Looks like you havent joined a community yet. You could create
-            your own or find one nearby.
-          </Text>
-
-          <AppButton
-            onPress={() => Stack.navigate('ListCommunity')}
-            title="Browse"
-            size="sm"
-            backgroundColor="#007bff"
-          />
-          <TextButton
-            title="Create a Community"
-            size="sm"
-            backgroundColor="#007bff"
-          />
-        </View>
-      </>
-    );
-  }
-}
+        <AppButton
+          onPress={() => Stack.navigate('ListCommunity')}
+          title="Browse"
+          size="sm"
+          backgroundColor="#007bff"
+        />
+        <TextButton
+          title="Create a Community"
+          size="sm"
+          backgroundColor="#007bff"
+          onPress={() => navigation.push('create community 1')}
+        />
+      </View>
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

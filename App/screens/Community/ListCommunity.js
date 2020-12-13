@@ -69,7 +69,7 @@ class ListCommunityScreen extends React.Component {
         </Text>
         <Searchbar placeholder="Search" />
         <ScrollView>
-          <DataTable >
+          <DataTable>
             <DataTable.Header>
               <DataTable.Title># Members</DataTable.Title>
               <DataTable.Title>Name</DataTable.Title>
@@ -78,8 +78,8 @@ class ListCommunityScreen extends React.Component {
 
             {this.state.communities.map((com, num) => {
               return (
-                <DataTable.Row  key={num}>
-                  <DataTable.Cell >{com.membersCount}/100</DataTable.Cell>
+                <DataTable.Row key={num}>
+                  <DataTable.Cell>{com.membersCount}/100</DataTable.Cell>
                   <DataTable.Cell>{com.name}</DataTable.Cell>
                   <DataTable.Cell>
                     {com.active ? 'Active' : 'Inactive'}
@@ -90,11 +90,11 @@ class ListCommunityScreen extends React.Component {
           </DataTable>
         </ScrollView>
         <Text style={styles.smallOrange}>Community Guideline</Text>
-         <TextButton
-            title="Create a Community"
-            size="sm"
-            backgroundColor="#007bff"
-          />
+        <TextButton
+          title="Create a Community"
+          size="sm"
+          backgroundColor="#007bff"
+        />
       </View>
     );
   }

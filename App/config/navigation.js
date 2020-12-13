@@ -10,6 +10,9 @@ import SignIn from '../screens/Entry/SignInScreen';
 import SignUp from '../screens/Entry/SignUpScreen';
 
 import CommunityHome from '../screens/Community/CommunityHome';
+import CommunityCommunity1 from '../screens/Community/CreateCommunity1';
+import CommunityCommunity2 from '../screens/Community/CreateCommunity2';
+import CommunityCommunity3 from '../screens/Community/CreateCommunity3';
 
 import CommunityHomeJoined from '../screens/Community/Joined/CommunityHome';
 import CommunitySearch from '../screens/Community/Joined/CommunitySearch';
@@ -22,7 +25,7 @@ import {AuthContext} from '../context';
 import {Text} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const hasCommunity = true;
+const hasCommunity = false;
 const AuthStack = createStackNavigator();
 
 const AuthStackScreen = () => (
@@ -32,9 +35,30 @@ const AuthStackScreen = () => (
   </AuthStack.Navigator>
 );
 
+const createCommunityStack = createStackNavigator();
+const createCommunityStackScreen = ({userToken}) => (
+  <createCommunityStack.Navigator>
+    <createCommunityStack.Screen
+      name="community Home"
+      component={CommunityHome}
+    />
+    <createCommunityStack.Screen
+      name="create community 1"
+      component={CommunityCommunity1}
+    />
+    <createCommunityStack.Screen
+      name="create community 2"
+      component={CommunityCommunity2}
+    />
+    <createCommunityStack.Screen
+      name="create community 3"
+      component={CommunityCommunity3}
+    />
+  </createCommunityStack.Navigator>
+);
 const communityHomeStack = createStackNavigator();
 const communityHomeScreen = ({userToken}) => (
-  <communityHomeStack.Navigator>
+  <communityHomeStack.Navigator headerMode="none">
     {
       /* does user have a community*/ hasCommunity ? (
         <communityHomeStack.Screen
@@ -43,8 +67,8 @@ const communityHomeScreen = ({userToken}) => (
         />
       ) : (
         <communityHomeStack.Screen
-          name="communityHome"
-          component={CommunityHome}
+          name="communityHomeScreen"
+          component={createCommunityStackScreen}
         />
       )
     }
@@ -61,7 +85,11 @@ const rootTabScreen = ({userToken}) => (
         <RootTab.Screen name="settings" component={CommunitySettings} />
       </>
     ) : (
-      <RootTab.Screen name="home" component={communityHomeScreen} />
+      <RootTab.Screen
+        tabBarVisible="false"
+        name="home"
+        component={communityHomeScreen}
+      />
     )}
   </RootTab.Navigator>
 );
@@ -102,9 +130,11 @@ export default () => {
     try {
       const value = await AsyncStorage.getItem('userToken');
       if (value !== null) {
+        setUserToken(value);
+        console.log(value);
       }
     } catch (e) {
-      // error reading value
+      console.log({e, error: 'occurred when getting data'});
     }
   };
 
@@ -113,7 +143,9 @@ export default () => {
       signIn: async () => {
         setIsLoading(false);
         try {
-          await AsyncStorage.setItem('userToken', 'asdf');
+          await AsyncStorage.setItem('userToken', 'asdf').then(
+            getData().then(console.log('data has been loaded')),
+          );
         } catch (error) {
           console.log(error);
         }
@@ -132,6 +164,7 @@ export default () => {
   }, []);
 
   React.useEffect(() => {
+    getData();
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);

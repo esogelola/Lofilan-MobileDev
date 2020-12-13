@@ -28,7 +28,7 @@ const TextButton = ({onPress, title}) => (
   </TouchableOpacity>
 );
 
-class ListCommunityScreen extends React.Component {
+class CommunityHome extends React.Component {
   constructor({navigation}) {
     super();
     this.state = {
@@ -71,7 +71,7 @@ class ListCommunityScreen extends React.Component {
         <ScrollView>
           {this.state.postings.map((post, num) => {
             return (
-              <TouchableOpacity>
+              <TouchableOpacity key={num}>
                 <Card style={styles.Card}>
                   <Card.Content>
                     <Text style={styles.smallOrange}>{post.title}</Text>
@@ -181,4 +181,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListCommunityScreen;
+export default CommunityHome;
