@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -28,70 +28,61 @@ const TextButton = ({onPress, title}) => (
   </TouchableOpacity>
 );
 
-class ListCommunityScreen extends React.Component {
-  constructor({navigation}) {
-    super();
-    this.state = {
-      postings: [
-        {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
-        },
-        {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
-        },
-        {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
-        },
-      ],
-    };
-  }
+const ListCommunityScreen = ({navigation}) => {
+  const [postings, setPostings] = useState([
+    {
+      title: 'Introductions',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+      created: '12 July',
+      author: 'Julia R',
+      topic: 'New members',
+    },
+    {
+      title: 'Introductions',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+      created: '12 July',
+      author: 'Julia R',
+      topic: 'New members',
+    },
+    {
+      title: 'Introductions',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+      created: '12 July',
+      author: 'Julia R',
+      topic: 'New members',
+    },
+  ]);
 
-  render() {
-    return (
-      <View style={styles.container}>
-     <Searchbar placeholder="Search" />
-     <Button title="sort"/>
-        <ScrollView>
-          {this.state.postings.map((post, num) => {
-            return (
-              <TouchableOpacity key={num}>
-                <Card style={styles.Card}>
-                  <Card.Content>
-                    <Text style={styles.smallOrange}>{post.title}</Text>
-                    <Paragraph style={styles.small}>
-                      {post.description}
-                    </Paragraph>
-                    <Text style={styles.small}>
-                      {post.created} by {post.author} in{' '}
-                      <Text style={styles.smallOrange}>{post.topic}</Text>
-                    </Text>
-                  </Card.Content>
-                </Card>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-
-
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <Searchbar placeholder="Search" />
+      <Button title="sort" />
+      <ScrollView>
+        {postings.map((post, num) => {
+          return (
+            <TouchableOpacity
+              key={num}
+              onPress={() => navigation.push('community view Posting')}>
+              <Card style={styles.Card}>
+                <Card.Content>
+                  <Text style={styles.smallOrange}>{post.title}</Text>
+                  <Paragraph style={styles.small}>{post.description}</Paragraph>
+                  <Text style={styles.small}>
+                    {post.created} by {post.author} in{' '}
+                    <Text style={styles.smallOrange}>{post.topic}</Text>
+                  </Text>
+                </Card.Content>
+              </Card>
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
+    </View>
+  );
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

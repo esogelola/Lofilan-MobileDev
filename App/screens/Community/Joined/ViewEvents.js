@@ -17,27 +17,19 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {Card, Surface, Title, Paragraph} from 'react-native-paper';
 
-const Stack = createStackNavigator();
-
 const TextButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.textButtonContainer}>
     <Text style={styles.textButtonText}>{title}</Text>
   </TouchableOpacity>
 );
 
-class CreateCommunit1Screen extends React.Component {
-  constructor({navigation}) {
-    super();
-  }
-
-  render() {
-    return (
-      <>
-
-        <View style={styles.container}>
-          <Surface style={styles.surface}>
-            <Text> May, 2 - May, 21</Text>
-          </Surface>
+const communityViewEvents = ({navigation}) => {
+  return (
+    <>
+      <View style={styles.container}>
+        <Surface style={styles.surface}>
+          <Text> May, 2 - May, 21</Text>
+        </Surface>
         <ScrollView>
           <Card style={styles.Card}>
             <Card.Content>
@@ -56,7 +48,7 @@ class CreateCommunit1Screen extends React.Component {
               <TextButton title="Not Interested" />
             </Card.Actions>
           </Card>
-           <Card style={styles.Card}>
+          <Card style={styles.Card}>
             <Card.Content>
               <Title style={{color: '#F85F6A'}}>Backyard Cinema</Title>
               <Paragraph style={styles.small}>
@@ -73,14 +65,15 @@ class CreateCommunit1Screen extends React.Component {
               <TextButton title="Not Interested" />
             </Card.Actions>
           </Card>
-          </ScrollView>
-             <TextButton title="Add Event" />
-        </View>
-        
-      </>
-    );
-  }
-}
+        </ScrollView>
+        <TextButton
+          title="Add Event"
+          onPress={() => navigation.push('community create Event')}
+        />
+      </View>
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -144,7 +137,7 @@ const styles = StyleSheet.create({
   },
   Card: {
     width: '100%',
-    marginBottom:10,
+    marginBottom: 10,
     elevation: 1,
   },
   textButtonContainer: {
@@ -163,4 +156,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateCommunit1Screen;
+export default communityViewEvents;

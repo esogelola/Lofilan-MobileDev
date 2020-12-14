@@ -44,7 +44,7 @@ const JoinCommunityScreen = ({navigation}) => {
         </Text>
 
         <AppButton
-          onPress={() => Stack.navigate('ListCommunity')}
+          onPress={() => navigation.push('community List')}
           title="Browse"
           size="sm"
           backgroundColor="#007bff"

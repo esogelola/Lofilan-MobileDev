@@ -14,7 +14,6 @@ import {
   Linking,
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import {TextInput, RadioButton, Chip, IconButton} from 'react-native-paper';
 
 const Stack = createStackNavigator();
@@ -34,15 +33,14 @@ class CreatePosting extends React.Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-          <Text style={styles.title}>Create a Post</Text>
+          <Text style={styles.title}>View Post</Text>
 
-          <TextInput label="Title" />
-          <TextInput
-            style={{marginTop: 10}}
-            multiline={true}
-            numberOfLines={3}
-            label="Description"
-          />
+          <Text label="Title">Garage Sale</Text>
+          <Text style={{marginTop: 10}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at
+            consectetur.....
+          </Text>
 
           <Text icon="information" style={styles.small}>
             17 Sedgewick Circle
@@ -75,7 +73,6 @@ class CreatePosting extends React.Component {
             </View>
           </View>
           <Text style={{marginBottom: 10}}>
-            {' '}
             <IconButton
               icon="camera"
               size={20}
@@ -83,7 +80,7 @@ class CreatePosting extends React.Component {
             />
             Attach an Image or file
           </Text>
-          <AppButton title="Post" size="sm" backgroundColor="#007bff" />
+          <AppButton title="Save" size="sm" backgroundColor="#007bff" />
         </View>
       </ScrollView>
     );
