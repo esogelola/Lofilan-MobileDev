@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import ListCommunityScreen from './ListCommunity';
-import { TextInput } from 'react-native-paper';
+import {TextInput} from 'react-native-paper';
 
 const Stack = createStackNavigator();
 
@@ -25,43 +25,36 @@ const AppButton = ({onPress, title}) => (
   </TouchableOpacity>
 );
 
-class CreateCommunit1Screen extends React.Component {
-  constructor({navigation}) {
-    super();
-  }
+const CreateCommunit1Screen = ({navigation}) => {
+  return (
+    <>
+      <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
 
-  render() {
-    return (
-      <>
-        <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
+      <View style={styles.container}>
+        <Image
+          source={require('../../../assets/images/people_PNG.png')}
+          style={styles.image}
+        />
+        <Text style={styles.title}>Create a Community</Text>
 
-        <View style={styles.container}>
-          <Image
-            source={require('../../static/images/people_PNG.png')}
-            style={styles.image}
-          />
-          <Text style={styles.title}>Create a Community</Text>
-
-          <Text style={styles.small}>
-            Finding a Community near you must be tough, doesn’t hurt to start
-            one for your Neighbourhood
-          </Text>
-          <Text style={styles.smallOrange}>
-            Responsibilities of a Community leader.
-          </Text>
-          <TextInput label="Community Name"/>
-          <AppButton
-            onPress={() => Stack.navigate('ListCommunity')}
-            title="Next"
-            size="sm"
-            backgroundColor="#007bff"
-          />
-         
-        </View>
-      </>
-    );
-  }
-}
+        <Text style={styles.small}>
+          Finding a Community near you must be tough, doesn’t hurt to start one
+          for your Neighbourhood
+        </Text>
+        <Text style={styles.smallOrange}>
+          Responsibilities of a Community leader.
+        </Text>
+        <TextInput label="Community Name" />
+        <AppButton
+          onPress={() => navigation.push('create community 2')}
+          title="Next"
+          size="sm"
+          backgroundColor="#007bff"
+        />
+      </View>
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -73,7 +66,7 @@ const styles = StyleSheet.create({
     width: 160,
     height: 182,
     resizeMode: 'contain',
-    
+
     marginBottom: 25,
   },
   title: {
@@ -126,8 +119,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textTransform: 'uppercase',
   },
-
-
 });
 
 export default CreateCommunit1Screen;

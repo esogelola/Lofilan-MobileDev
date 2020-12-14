@@ -14,10 +14,7 @@ import {
   Linking,
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import ListCommunityScreen from './ListCommunity';
 import {TextInput, RadioButton, Chip, IconButton} from 'react-native-paper';
-
-const Stack = createStackNavigator();
 
 const AppButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
@@ -33,8 +30,6 @@ class CreatePosting extends React.Component {
   render() {
     return (
       <ScrollView>
-        <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
-
         <View style={styles.container}>
           <Text style={styles.title}>Create an Event</Text>
 
@@ -45,10 +40,10 @@ class CreatePosting extends React.Component {
             numberOfLines={3}
             label="Description"
           />
-    <Text style={styles.small}>Location</Text>
+          <Text style={styles.small}>Location</Text>
           <Text style={styles.small2}>17 Sedgewick Circle</Text>
           <Text style={styles.small}>Time</Text>
- <Text style={styles.small2}>12 : 30 PM</Text>
+          <Text style={styles.small2}>12 : 30 PM</Text>
           <Text style={{marginBottom: 10}}>
             {' '}
             <IconButton
@@ -58,7 +53,9 @@ class CreatePosting extends React.Component {
             />
             Attach an Image or file
           </Text>
-          <Text style={styles.small2}>Attachments will be shown in Email sent to Event Participants</Text>
+          <Text style={styles.small2}>
+            Attachments will be shown in Email sent to Event Participants
+          </Text>
           <AppButton title="Done" size="sm" backgroundColor="#007bff" />
         </View>
       </ScrollView>
@@ -127,7 +124,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: '#989EB1',
   },
-    small2: {
+  small2: {
     fontFamily: 'Asap',
     fontStyle: 'normal',
     fontWeight: 'normal',

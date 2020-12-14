@@ -25,42 +25,36 @@ const AppButton = ({onPress, title}) => (
   </TouchableOpacity>
 );
 
-class CreateCommunit3Screen extends React.Component {
-  constructor({navigation}) {
-    super();
-  }
+const CreateCommunit3Screen = ({navigation}) => {
+  return (
+    <ScrollView>
+      <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
 
-  render() {
-    return (
-      <ScrollView>
-        <Stack.Screen name="ListCommunity" component={ListCommunityScreen} />
-
-        <View style={styles.container}>
-          <Text style={styles.title}>ConfirmCommunity</Text>
-          <Text style={styles.small}>
-            Add a Community Banner and confirm all the details.
-          </Text>
-          <Image
-            source={require('../../static/images/AddPhoto.png')}
-            style={styles.image}
-          />
-          <Text style={styles.smaller}>
-            this will be displayed when someone checks out the community, make
-            it looks nice!
-          </Text>
-          <Text style={styles.medium}>Community Name</Text>
-          <Text style={styles.small}>Anyone can join this community</Text>
-          <Text style={styles.small}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at
-            consectetur.....
-          </Text>
-          <AppButton title="Confirm" size="sm" backgroundColor="#007bff" />
-        </View>
-      </ScrollView>
-    );
-  }
-}
+      <View style={styles.container}>
+        <Text style={styles.title}>ConfirmCommunity</Text>
+        <Text style={styles.small}>
+          Add a Community Banner and confirm all the details.
+        </Text>
+        <Image
+          source={require('../../../assets/images/AddPhoto.png')}
+          style={styles.image}
+        />
+        <Text style={styles.smaller}>
+          this will be displayed when someone checks out the community, make it
+          looks nice!
+        </Text>
+        <Text style={styles.medium}>Community Name</Text>
+        <Text style={styles.small}>Anyone can join this community</Text>
+        <Text style={styles.small}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at
+          consectetur.....
+        </Text>
+        <AppButton title="Confirm" size="sm" backgroundColor="#007bff" />
+      </View>
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

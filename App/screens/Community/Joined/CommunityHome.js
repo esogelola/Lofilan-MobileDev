@@ -1,99 +1,81 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  StatusBar,
-  Button,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  FlatList,
-  ImageBackground,
-  Linking,
-} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, ScrollView, View, TouchableOpacity} from 'react-native';
 
-import {
-  Surface,
-  Text,
-  Searchbar,
-  Paragraph,
-  Title,
-  Card,
-} from 'react-native-paper';
+import {Surface, Text, Paragraph, Card} from 'react-native-paper';
 const TextButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.textButtonContainer}>
     <Text style={styles.textButtonText}>{title}</Text>
   </TouchableOpacity>
 );
 
-class ListCommunityScreen extends React.Component {
-  constructor({navigation}) {
-    super();
-    this.state = {
-      postings: [
-        {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
-        },
-        {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
-        },
-        {
-          title: 'Introductions',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
-          created: '12 July',
-          author: 'Julia R',
-          topic: 'New members',
-        },
-      ],
-    };
-  }
+const CommunityHome = ({navigation}) => {
+  const [postings, setPostings] = useState([
+    {
+      title: 'Introductions',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+      created: '12 July',
+      author: 'Julia R',
+      topic: 'New members',
+    },
+    {
+      title: 'Introductions',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+      created: '12 July',
+      author: 'Julia R',
+      topic: 'New members',
+    },
+    {
+      title: 'Introductions',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at consectetur.....',
+      created: '12 July',
+      author: 'Julia R',
+      topic: 'New members',
+    },
+  ]);
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Surface style={styles.surface}>
-          <Text>Community Event / Latest News</Text>
-        </Surface>
+  return (
+    <View style={styles.container}>
+      <Surface style={styles.surface}>
+        <Text>Community Event / Latest News</Text>
+      </Surface>
 
-        <ScrollView>
-          {this.state.postings.map((post, num) => {
-            return (
-              <TouchableOpacity>
-                <Card style={styles.Card}>
-                  <Card.Content>
-                    <Text style={styles.smallOrange}>{post.title}</Text>
-                    <Paragraph style={styles.small}>
-                      {post.description}
-                    </Paragraph>
-                    <Text style={styles.small}>
-                      {post.created} by {post.author} in{' '}
-                      <Text style={styles.smallOrange}>{post.topic}</Text>
-                    </Text>
-                  </Card.Content>
-                </Card>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
+      <ScrollView>
+        {postings.map((post, num) => {
+          return (
+            <TouchableOpacity
+              key={num}
+              onPress={() => {
+                navigation.push('community view Posting');
+              }}>
+              <Card style={styles.Card}>
+                <Card.Content>
+                  <Text style={styles.smallOrange}>{post.title}</Text>
+                  <Paragraph style={styles.small}>{post.description}</Paragraph>
+                  <Text style={styles.small}>
+                    {post.created} by {post.author} in{' '}
+                    <Text style={styles.smallOrange}>{post.topic}</Text>
+                  </Text>
+                </Card.Content>
+              </Card>
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
 
-        <TextButton title="New Post" size="sm" backgroundColor="#007bff" />
-      </View>
-    );
-  }
-}
+      <TextButton
+        title="New Post"
+        size="sm"
+        backgroundColor="#007bff"
+        onPress={() => {
+          navigation.push('community create Posting');
+        }}
+      />
+    </View>
+  );
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -181,4 +163,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListCommunityScreen;
+export default CommunityHome;
